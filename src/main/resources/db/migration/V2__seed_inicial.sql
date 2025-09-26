@@ -1,0 +1,13 @@
+INSERT INTO PATIO (NOME, ENDERECO) VALUES ('Pátio Central',   'Av. Brasil, 1000');
+INSERT INTO PATIO (NOME, ENDERECO) VALUES ('Pátio Secundário','Rua das Flores, 200');
+
+INSERT INTO OPERADOR (NOME, LOGIN, SENHA) VALUES ('João Silva',  'joao.silva',  'hash_senha_aqui');
+INSERT INTO OPERADOR (NOME, LOGIN, SENHA) VALUES ('Maria Souza', 'maria.souza', 'hash_senha_aqui');
+
+INSERT INTO AUTOMOVEL (PLACA, CHASSI, TIPO, COR, LOCALIZACAO_NO_PATIO, COMENTARIOS, PATIO_ID)
+VALUES ('ABC1D23','9BWZZZ377VT004251','Moto','Vermelha','Setor A','Entrada hoje',
+        (SELECT ID FROM PATIO WHERE NOME='Pátio Central'));
+
+INSERT INTO AUTOMOVEL (PLACA, CHASSI, TIPO, COR, LOCALIZACAO_NO_PATIO, COMENTARIOS, PATIO_ID)
+VALUES ('DEF4G56','9BWZZZ377VT004252','Carro','Preto','Setor B','Revisão pendente',
+        (SELECT ID FROM PATIO WHERE NOME='Pátio Secundário'));

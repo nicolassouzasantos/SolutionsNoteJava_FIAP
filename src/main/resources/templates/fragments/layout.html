@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(titulo)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}">Solutions Note</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<header th:fragment="header">
+    <div class="header-content">
+        <h1>Solutions Note</h1>
+        <p class="subtitle">Gestão de automóveis apreendidos</p>
+    </div>
+</header>
+<nav th:fragment="menu">
+    <a th:href="@{/automoveis-ui}">Automóveis</a>
+</nav>
+<footer th:fragment="footer">
+    <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Solutions Note. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>

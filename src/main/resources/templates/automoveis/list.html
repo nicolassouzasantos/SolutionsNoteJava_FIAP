@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Automóveis')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<nav th:replace="~{fragments/layout :: menu}"></nav>
+<main class="container">
+    <div class="page-header">
+        <h2>Automóveis cadastrados</h2>
+        <a class="button primary" th:href="@{/automoveis-ui/novo}">Novo automóvel</a>
+    </div>
+
+    <div th:if="${mensagem}" class="alert success" th:text="${mensagem}"></div>
+    <div th:if="${mensagemErro}" class="alert error" th:text="${mensagemErro}"></div>
+
+    <div th:if="${#lists.isEmpty(automoveis)}" class="empty-state">
+        <p>Nenhum automóvel cadastrado até o momento.</p>
+    </div>
+
+    <div th:if="${!#lists.isEmpty(automoveis)}" class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Chassi</th>
+                <th>Tipo</th>
+                <th>Cor</th>
+                <th>Localização</th>
+                <th>Pátio</th>
+                <th class="acoes">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="automovel : ${automoveis}">
+                <td th:text="${automovel.placa}"></td>
+                <td th:text="${automovel.chassi}"></td>
+                <td th:text="${automovel.tipo}"></td>
+                <td th:text="${automovel.cor}"></td>
+                <td th:text="${automovel.localizacaoNoPatio}"></td>
+                <td th:text="${automovel.patio != null ? automovel.patio.nome : '—'}"></td>
+                <td class="acoes">
+                    <a class="button secondary"
+                       th:href="@{'/automoveis-ui/' + ${automovel.id} + '/editar'}">Editar</a>
+                    <form th:action="@{'/automoveis-ui/' + ${automovel.id} + '/excluir'}" method="post"
+                          onsubmit="return confirm('Confirma a exclusão deste automóvel?');">
+                        <button type="submit" class="button danger">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

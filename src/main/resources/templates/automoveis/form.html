@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${tituloPagina})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<nav th:replace="~{fragments/layout :: menu}"></nav>
+<main class="container">
+    <a class="back-link" th:href="@{/automoveis-ui}">&larr; Voltar para a lista</a>
+
+    <div class="card">
+        <h2 th:text="${tituloPagina}">Cadastro de automóvel</h2>
+        <form th:action="${modoEdicao} ? @{/automoveis-ui/{id}(id=${automovelId})} : @{/automoveis-ui}"
+              th:object="${automovelForm}" method="post">
+            <div class="grid">
+                <div class="field">
+                    <label for="placa">Placa *</label>
+                    <input id="placa" type="text" th:field="*{placa}" placeholder="ABC1234" required>
+                    <div class="error" th:if="${#fields.hasErrors('placa')}" th:errors="*{placa}"></div>
+                </div>
+                <div class="field">
+                    <label for="chassi">Chassi *</label>
+                    <input id="chassi" type="text" th:field="*{chassi}" placeholder="9BWZZZ377VT004251" required>
+                    <div class="error" th:if="${#fields.hasErrors('chassi')}" th:errors="*{chassi}"></div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="field">
+                    <label for="tipo">Tipo *</label>
+                    <input id="tipo" type="text" th:field="*{tipo}" placeholder="Moto" required>
+                    <div class="error" th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></div>
+                </div>
+                <div class="field">
+                    <label for="cor">Cor</label>
+                    <input id="cor" type="text" th:field="*{cor}" placeholder="Preta">
+                </div>
+            </div>
+            <div class="grid">
+                <div class="field">
+                    <label for="localizacaoNoPatio">Localização no pátio</label>
+                    <input id="localizacaoNoPatio" type="text" th:field="*{localizacaoNoPatio}"
+                           placeholder="Setor A - Vaga 12">
+                </div>
+                <div class="field">
+                    <label for="patioId">Pátio *</label>
+                    <select id="patioId" th:field="*{patioId}" required>
+                        <option value="" disabled th:selected="${automovelForm.patioId == null}">Selecione</option>
+                        <option th:each="patio : ${patios}" th:value="${patio.id}" th:text="${patio.nome}"></option>
+                    </select>
+                    <div class="error" th:if="${#fields.hasErrors('patioId')}" th:errors="*{patioId}"></div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="comentarios">Comentários</label>
+                <textarea id="comentarios" th:field="*{comentarios}" rows="4"
+                          placeholder="Observações importantes sobre o veículo"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="button primary"
+                        th:text="${modoEdicao} ? 'Atualizar' : 'Salvar'"></button>
+                <a class="button secondary" th:href="@{/automoveis-ui}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
