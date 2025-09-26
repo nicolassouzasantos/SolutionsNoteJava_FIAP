@@ -1,7 +1,12 @@
 # Solutions Note
 
+## Autores
+- Nicolas Souza dos Santos - rm555571
+- Oscar Arias Neto - rm556936
+- Julia Martins Rebelles - rm554516
+
 ## Visão geral
-O Solutions Note é uma aplicação Spring Boot que centraliza o cadastro e o acompanhamento de veículos estacionados em pátios parceiros. O sistema expõe APIs REST para administrar pátios, operadores e automóveis, além de uma interface web construída com Spring MVC e Thymeleaf para operações de CRUD sobre o acervo de automóveis. A aplicação utiliza Spring Data JPA com Oracle Database, validação com Jakarta Bean Validation e migrations Flyway para manter o esquema consistente.
+O Solutions Note é uma aplicação Spring Boot que centraliza o cadastro e o acompanhamento de veículos estacionados em pátios da Mottu. O sistema expõe APIs REST para administrar pátios, operadores e automóveis, além de uma interface web construída com Spring MVC e Thymeleaf para operações de CRUD sobre o acervo de automóveis. A aplicação utiliza Spring Data JPA com Oracle Database, validação com Jakarta Bean Validation e migrations Flyway para manter o esquema consistente.
 
 ## Sumário
 - [Pré-requisitos](#pré-requisitos)
@@ -118,11 +123,3 @@ Execute os testes com:
 ```bash
 ./mvnw test
 ```
-
-## Licença
-Este é um projeto acadêmico sem licença definida. Caso deseje reutilizar, consulte os autores.
-
-## Autores
-- Nicolas Souza dos Santos - rm555571
-- Oscar Arias Neto - rm556936
-- Julia Martins Rebelles - rm554516
