@@ -106,6 +106,9 @@ Validações de campo incorretas retornam `400 Bad Request` com a lista de erros
 A interface MVC está disponível em `http://localhost:8080/automoveis-ui` e é composta por:
 - Listagem de automóveis com ordenação por placa.
 - Formulário de criação e edição com validação servidor/cliente.
+- Para testes na página de login utilize:
+Login: admin
+Senha: admin123
 - Ações de exclusão com feedback visual via flash messages.
 
 Os templates residem em [`src/main/resources/templates/automoveis`](src/main/resources/templates/automoveis) e utilizam fragmentos comuns definidos em [`templates/fragments/layout.html`](src/main/resources/templates/fragments/layout.html). As opções de pátio são carregadas dinamicamente a partir do repositório, garantindo consistência entre a interface e as APIs.
@@ -115,14 +118,6 @@ Execute os testes com:
 ```bash
 ./mvnw test
 ```
-Até o momento o projeto não contém suítes de teste, mas a dependência `spring-boot-starter-test` já está configurada para facilitar a criação de testes unitários e de integração.
-
-## Manutenção e contribuição
-1. Crie um branch a partir da `main` descrevendo a mudança (`feature/nova-funcionalidade`).
-2. Execute os testes automatizados e verifique a cobertura antes do commit.
-3. Envie um Pull Request detalhando o impacto e os passos de validação.
-
-Sugestões de evolução incluem a criação de testes integrados para os controllers, autenticação para as rotas administrativas e provisionamento automatizado de um banco Oracle para desenvolvimento.
 
 ## Licença
 Este é um projeto acadêmico sem licença definida. Caso deseje reutilizar, consulte os autores.
