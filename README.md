@@ -1,5 +1,7 @@
 # Solutions Note
 
+# LINK DO VÍDEO DO PROJETO: https://youtu.be/aBXcs_HHvT0?si=ytg1pcgQCfdVLaJq
+
 ## Autores
 - Nicolas Souza dos Santos - rm555571
 - Oscar Arias Neto - rm556936
